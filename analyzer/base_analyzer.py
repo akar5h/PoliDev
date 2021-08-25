@@ -1,4 +1,4 @@
-from slack_data import SlackGetter
+from integrations.slack_integration import SlackGetter
 
 
 class BaseAnalyzer:

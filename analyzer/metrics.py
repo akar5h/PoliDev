@@ -1,10 +1,8 @@
-import pandas as pd
 import json
 from time import time
-from base_classes import BaseAnalyzer, BaseAnalyzerConfig
-from slack_data import SlackGetterConfig
+from analyzer.base_analyzer import BaseAnalyzer, BaseAnalyzerConfig
+from integrations.slack_integration import SlackGetterConfig
 from utils import get_time_in_seconds, get_time_bins
-import numpy as np
 
 
 class MetricAnalyzerConfig(BaseAnalyzerConfig):
@@ -215,5 +213,5 @@ if __name__ == "__main__":
     )
     metric_analyzer = MetricAnalyzer(config=config)
     channel_metrics = metric_analyzer.analyze_metrics("slack")
-    with open("debug/out.json", "w") as f:
+    with open("../debug/out.json", "w") as f:
         json.dump(channel_metrics, f)
